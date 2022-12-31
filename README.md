@@ -69,4 +69,4 @@ fi
 
 Both example programs will output the image file 'output.png' if the request to the Flask API is received:
 
-![program outputs the image](static/output.png?raw=true "decoded base64 image from url query")
+![program outputs the image](/static/output.png "decoded base64 image from url query")
