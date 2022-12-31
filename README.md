@@ -1,6 +1,6 @@
 # sd-b64-api (stable-diffusion-base64-api)
 
-Flask API written to send back a json response containing txt2img base64 output through URL query
+Flask API written to send back a json response containing txt2img base64 output through URL query using ai.serverboi.org
 
 Setup dependencies:
 
