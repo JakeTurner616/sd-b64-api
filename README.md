@@ -90,7 +90,7 @@ docker run -p 5000:5000 -it sd-b64-api
 ```
 ## Load balancing / scaling
 
-Since one instance can take multiple seconds for each request, we can do a hack to assign clients to containers seqentially (one after the other).
+Since one instance can take multiple seconds for each request, we can do a hack to assign clients to containers sequentially (one after the other).
 
 To start the the Flask app with load balancing, run the following command in the source directory:
 
