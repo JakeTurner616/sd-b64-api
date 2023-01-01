@@ -88,3 +88,20 @@ Then run the built image:
 ```
 docker run -p 5000:5000 -it sd-b64-api
 ```
+## Load balancing / scaling
+
+Since one instance can take multiple seconds for each request, we can do a hack to assign clients to containers seqentially (one after the other).
+
+To start the the Flask app with load balancing, run the following command in the source directory:
+
+```
+docker-compose up
+```
+You can scale the number of Flask app instances by using the docker-compose scale command. For example, to start 3 instances of the app, you can run the following command:
+
+```
+docker-compose scale app=3
+```
+
+This will start 3 instances of the "app" service, which will be automatically registered. When the load balancer receives an incoming request, it selects an available instance of the service to handle the request based on the round-robin algorithm. This means that the load balancer will select the first available instance for the first request, the second available instance for the second request, and so on.
+It creates a container for each of the defined services: "app" and "nginx". The "app" service starts multiple instances of the Flask app, and the "nginx" service starts a simple NGINX load balancer.
