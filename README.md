@@ -1,6 +1,6 @@
 # sd-b64-api (stable-diffusion-base64-api)
 
-Flask API written to send back a json response containing txt2img base64 output through URL query using [ai.serverboi.org](https://ai.serverboi.org) and AUTOMATIC111's [stable-diffusion-webUI](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/API) text2img API.
+Flask API written to send back a json response containing txt2img base64 output through URL query using [ai.serverboi.org](https://ai.serverboi.org) and AUTOMATIC111's [stable-diffusion-webUI text2img API](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/API).
 
 Setup dependencies:
 
