@@ -17,5 +17,5 @@ COPY templates templates/
 # Expose the default port for the Flask app
 EXPOSE 5000
 
-# Set the default command to run the Flask app
+# Set the default command to run the Flask app "timeout" is important to let the API respond before the process is killed.
 CMD ["gunicorn", "web:app", "-b", "0.0.0.0:5000", "--timeout", "100"]
