@@ -106,7 +106,7 @@ docker-compose up
 You can scale the number of Flask app instances by using the docker-compose scale command. For example, to start 3 instances of the app, you can run the following command:
 
 ```
-docker-compose scale app=3
+docker-compose up --scale app=3
 ```
 
 This will start 3 instances of the "app" service, which will be automatically registered. When the load balancer receives an incoming request, it selects an available instance of the service to handle the request based on the round-robin algorithm. This means that the load balancer will select the first available instance for the first request, the second available instance for the second request, and so on.
