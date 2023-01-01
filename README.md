@@ -1,18 +1,24 @@
 # sd-b64-api (stable-diffusion-base64-api)
 
-Flask API written to send back a json response containing txt2img base64 output through URL query using ai.serverboi.org
+Flask API written to send back a json response containing txt2img base64 output through URL query using [ai.serverboi.org](https://ai.serverboi.org)
 
 Setup dependencies:
 
+```
 pip3 install -r requirements.txt
+```
 
 Run web.py for a development environment for testing. Don't use the development server for production! See [Deploying](#deploying).
 
+```
 python .\web.py
+```
 
 Send url query:
 
+```
 http://127.0.0.1:5000/text?input=%22monkey%20with%20a%20hat%22
+```
 
 Response is sent as json 'b64-image' containing the base64 encoded data. Heres an example of a python program to accept this data and decode it into an image:
 
