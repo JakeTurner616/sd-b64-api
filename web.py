@@ -30,26 +30,35 @@ def index():
     # Encode the image data as a base64 string
     image_base64 = base64.b64encode(image_data).decode('utf-8')
 
-    # Render the index.html template and pass the image data as a parameter
+    # Read the lines from the file 'prompt.txt' and join them into a single string
     with open('prompt.txt', 'r') as f:
-        lines = []
-        for line in f:
-            lines.append(line)
-        return render_template('index.html', image=image_base64, prompt=line)
+        prompt = ''.join(f.readlines())
+
+    # Render the index.html template and pass the image data and prompt string as parameters
+    return render_template('index.html', image=image_base64, prompt=prompt)
 
 @app.route('/text')
 def query_example():
-    # if key doesn't exist, returns None
+    # Set a default value for the 'image_base64' variable
+    image_base64 = ''
+    # Get the value of the 'input' query parameter
     text = request.args.get('input')
-    f = open('prompt.txt', 'w')
-    f.write(text)
-    f.close()
-    subprocess.run(["python", "sd.py", text])
-    # Open the image file and read it into memory
-    with open('static/output.png', 'rb') as f:
-        image_data = f.read()
-    # Encode the image data as a base64 string
-    image_base64 = base64.b64encode(image_data).decode('utf-8')
+    if text:
+        # Write the value of 'input' to the file 'prompt.txt'
+        with open('prompt.txt', 'w') as f:
+            f.write(text)
+        # Run the sd.py script with the value of 'input' as an argument
+        subprocess.run(["python", "sd.py", text])
+        # Open the image file and read it into memory
+        with open('static/output.png', 'rb') as f:
+            image_data = f.read()
+        # Encode the image data as a base64 string
+        image_base64 = base64.b64encode(image_data).decode('utf-8')
+    else:
+        # Handle the case where the 'input' query parameter is not provided
+        # (e.g. return an error message, set a default value, etc.)
+        pass
+
 
     # Render the index.html template and pass the image data as a parameter
     image=image_base64
