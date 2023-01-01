@@ -6,7 +6,7 @@ Setup dependencies:
 
 pip3 install -r requirements.txt
 
-Run web.py for a development environment for testing. Don't use the development server for production!
+Run web.py for a development environment for testing. Don't use the development server for production! See [Deploying](#deploying).
 
 python .\web.py
 
