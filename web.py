@@ -1,14 +1,19 @@
-from flask import Flask, request, render_template, send_from_directory, jsonify
-import requests
-from flask_cors import CORS
+from flask import Flask, request, render_template, jsonify
 import subprocess
 import base64
 import io
 from PIL import Image
-import sys
+import os
+from flask import send_from_directory
 
 app = Flask(__name__,)
-CORS(app)
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
 @app.route('/image', methods=['POST'])
 def process_image():
     # Get the base64 data from the "image" parameter
@@ -16,7 +21,6 @@ def process_image():
 
     # Decode the base64 data and open it as an image
     image = Image.open(io.BytesIO(base64.b64decode(image_data)))
-    return render_template('decoder.py', b64img=image)
 
 @app.route('/')
 def index():

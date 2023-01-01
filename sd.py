@@ -3,7 +3,6 @@ import requests
 import io
 import base64
 from PIL import Image, PngImagePlugin
-from web import query_example
 import sys
 
 
@@ -41,4 +40,4 @@ data = {
 }
 
     # Send the POST request to the Flask application
-response = requests.post(url='http://localhost:5000/image', data=data)
+response = requests.post(url='/image', data=data)
