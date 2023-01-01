@@ -20,7 +20,7 @@ Send url query:
 http://127.0.0.1:5000/text?input=%22monkey%20with%20a%20hat%22
 ```
 
-Response is sent as json `b64-image` containing the base64 encoded data. Heres an example of a python program to accept this data and decode it into an image:
+Response is sent as json titled: `image-b64` containing the base64 encoded data. Heres an example of a simple python program to accept this data and decode it into an image:
 
 ```python
 import base64
