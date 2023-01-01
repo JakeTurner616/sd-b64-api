@@ -71,6 +71,10 @@ Both example programs will output the image file 'output.png' if the request to 
 
 ![program outputs the image](/static/output.png "decoded base64 image from url query")
 
+`prompt.txt` will be written as the user input from the url query on the flask backend:
+```
+"monkey with a hat"
+```
 ## Deploying
 
 This can be easily deployed with docker and gunicorn by running the following build command in the source directory to build an image:
