@@ -70,3 +70,17 @@ fi
 Both example programs will output the image file 'output.png' if the request to the Flask API is received:
 
 ![program outputs the image](/static/output.png "decoded base64 image from url query")
+
+## Deploying
+
+This can be easily deployed with docker and gunicorn by running the following build command in the source directory to build an image:
+
+```
+docker build -t sd-b64-api .
+```
+
+Then run the built image:
+
+```
+docker run -p 5000:5000 -it sd-b64-api
+```
