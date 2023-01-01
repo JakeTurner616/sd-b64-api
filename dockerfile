@@ -10,7 +10,6 @@ RUN pip install -r requirements.txt
 # Copy the app code
 COPY web.py .
 COPY sd.py .
-COPY decoder.py templates/
 COPY prompt.txt .
 COPY static static/
 COPY templates templates/
