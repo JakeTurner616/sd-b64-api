@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  app:
+    # Build the app service from the current directory
+    build: .
+    # Run the Flask app with gunicorn on port 5000
+    command: gunicorn web:app -b :5000
+    # Mount the current directory as a volume
+    volumes:
+      - .:/app
+    # Expose port 5000 on the container
+    ports:
+      - "5000:5000"
+  nginx:
+    # Use the latest NGINX image
+    image: nginx:latest
+    # Expose port 80 on the container
+    ports:
+      - "80:80"
+    # Mount the nginx.conf file as a volume
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    # Depend on the app service
+    depends_on:
+      - app
+
