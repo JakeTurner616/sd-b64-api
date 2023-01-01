@@ -103,7 +103,7 @@ To start the the Flask app with load balancing, run the following command in the
 ```
 docker-compose up
 ```
-You can scale the number of Flask app instances by using the docker-compose scale command. For example, to start 3 instances of the app, you can run the following command:
+You can scale the number of Flask app instances by using docker-compose. For example, to start 3 instances of the app, you can run the following command:
 
 ```
 docker-compose up --scale app=3
